@@ -34,6 +34,13 @@ sudo bash scripts/install.sh
 sudo bash /opt/extractpdf/scripts/update.sh
 ```
 
+### 移除服務
+
+```bash
+# 下載並執行移除腳本
+curl -sSL https://raw.githubusercontent.com/AngeloEyez/extractPDF/main/scripts/uninstall.sh | sudo bash
+```
+
 ### 服務管理
 
 ```bash
