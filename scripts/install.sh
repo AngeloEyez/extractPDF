@@ -69,9 +69,12 @@ create_user() {
 
 # 複製應用程式
 clone_app() {
-    if [ -d "$APP_DIR" ]; then
         warn "目錄 $APP_DIR 已存在，將進行更新..."
         cd "$APP_DIR"
+        
+        # 解決 Git dubious ownership 問題
+        git config --global --add safe.directory "$APP_DIR"
+        
         git fetch origin
         git reset --hard origin/main
     else

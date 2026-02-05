@@ -49,6 +49,9 @@ update_code() {
     info "更新程式碼..."
     cd "$APP_DIR"
     
+    # 解決 Git dubious ownership 問題 (因為腳本以 root 執行但目錄屬於 extractpdf)
+    git config --global --add safe.directory "$APP_DIR"
+    
     # 保存本地修改（如果有）
     git stash --quiet 2>/dev/null || true
     
