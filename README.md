@@ -118,6 +118,23 @@ pytest tests/ -v
 
 ---
 
+## 工具列表
+
+### PDF 解密工具 (`scripts/decrypt_pdf.py`)
+
+如果您知道 PDF 的 User Password，但想移除密碼保護（包含 Admin Password 限制），可使用此工具：
+
+```bash
+# 基本用法
+python scripts/decrypt_pdf.py <輸入PDF> <User密碼>
+
+# 範例
+python scripts/decrypt_pdf.py input.pdf F124599126
+# 輸出: input_decrypted.pdf (無密碼保護)
+```
+
+---
+
 ## 專案結構
 
 ```
