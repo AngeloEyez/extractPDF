@@ -39,7 +39,9 @@ Thumbs.db
 .pytest_cache/
 .coverage
 htmlcov/
+test/
 
 # 環境變數
 .env
 .env.local
+
