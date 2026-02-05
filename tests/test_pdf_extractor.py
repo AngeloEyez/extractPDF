@@ -18,8 +18,8 @@ TEST_PDF_DIR = PROJECT_ROOT / "test"
 TEST_PDF_1 = TEST_PDF_DIR / "84_2143504-20603_20603.PDF"
 TEST_PDF_2 = TEST_PDF_DIR / "收益分配通知書.pdf"
 
-# 測試密碼
-TEST_PASSWORD = "F124599126"
+# 測試密碼（從環境變數讀取，避免硬編碼）
+TEST_PASSWORD = os.environ.get("PDF_TEST_PASSWORD", "")
 
 
 def load_pdf_as_base64(file_path: Path) -> str:

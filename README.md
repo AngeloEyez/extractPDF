@@ -9,7 +9,49 @@
 - 支援多密碼嘗試
 - 自動產生 API 文件（Swagger UI）
 
-## 安裝
+---
+
+## 快速部署（Debian 12+）
+
+### 一鍵安裝
+
+```bash
+# 下載並執行安裝腳本
+curl -sSL https://raw.githubusercontent.com/AngeloEyez/extractPDF/main/scripts/install.sh | sudo bash
+```
+
+或手動安裝：
+
+```bash
+git clone https://github.com/AngeloEyez/extractPDF.git
+cd extractPDF
+sudo bash scripts/install.sh
+```
+
+### 更新服務
+
+```bash
+sudo bash /opt/extractpdf/scripts/update.sh
+```
+
+### 服務管理
+
+```bash
+# 查看狀態
+sudo systemctl status extractpdf
+
+# 重啟服務
+sudo systemctl restart extractpdf
+
+# 查看日誌
+sudo journalctl -u extractpdf -f
+```
+
+---
+
+## 本機開發
+
+### 安裝
 
 ```bash
 # 建立虛擬環境
@@ -25,7 +67,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## 執行
+### 執行
 
 ```bash
 # 開發模式
@@ -34,6 +76,18 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 # 生產模式
 uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 4
 ```
+
+### 測試
+
+```bash
+# 設定測試密碼環境變數
+export PDF_TEST_PASSWORD="your_test_password"
+
+# 執行測試
+pytest tests/ -v
+```
+
+---
 
 ## API 使用
 
@@ -62,15 +116,7 @@ uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 4
 - Swagger UI: http://localhost:8000/docs
 - ReDoc: http://localhost:8000/redoc
 
-## 測試
-
-```bash
-# 執行所有測試
-pytest tests/ -v
-
-# 執行特定測試
-pytest tests/test_pdf_extractor.py -v
-```
+---
 
 ## 專案結構
 
@@ -80,15 +126,14 @@ extractPDF/
 │   ├── __init__.py
 │   ├── main.py              # FastAPI 應用程式入口
 │   ├── routers/
-│   │   ├── __init__.py
 │   │   └── pdf.py           # PDF API 路由
 │   └── services/
-│       ├── __init__.py
 │       └── pdf_extractor.py # PDF 處理核心邏輯
+├── scripts/
+│   ├── install.sh           # Debian 安裝腳本
+│   └── update.sh            # 更新腳本
 ├── tests/
-│   ├── __init__.py
 │   └── test_pdf_extractor.py
-├── test/                     # 測試 PDF 檔案
 ├── requirements.txt
 └── README.md
 ```
