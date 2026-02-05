@@ -16,7 +16,7 @@ PROJECT_ROOT = Path(__file__).parent.parent
 # 測試 PDF 檔案路徑
 TEST_PDF_DIR = PROJECT_ROOT / "test"
 TEST_PDF_1 = TEST_PDF_DIR / "84_2143504-20603_20603.PDF"
-TEST_PDF_2 = TEST_PDF_DIR / "收益分配通知書.pdf"
+TEST_PDF_2 = TEST_PDF_DIR / "cathetf.pdf"
 
 # 測試密碼（從環境變數讀取，避免硬編碼）
 TEST_PASSWORD = os.environ.get("PDF_TEST_PASSWORD", "")

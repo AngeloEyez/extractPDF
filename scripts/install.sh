@@ -47,6 +47,13 @@ install_dependencies() {
         curl \
         > /dev/null
 
+    info "安裝 Tesseract OCR（用於處理掃描 PDF）..."
+    apt-get install -y -qq \
+        tesseract-ocr \
+        tesseract-ocr-chi-tra \
+        tesseract-ocr-chi-sim \
+        > /dev/null
+
     info "系統依賴安裝完成"
 }
 

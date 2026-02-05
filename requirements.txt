@@ -8,6 +8,11 @@ uvicorn[standard]>=0.27.0
 PyMuPDF>=1.23.0
 pdfplumber>=0.10.0
 
+# OCR 支援（處理亂碼 PDF）
+pytesseract>=0.3.10
+pillow>=10.0.0
+
 # 測試
 pytest>=8.0.0
 httpx>=0.26.0
+

@@ -1,0 +1,1 @@
+執行測試時需設定：export PDF_TEST_PASSWORD="your_password"
